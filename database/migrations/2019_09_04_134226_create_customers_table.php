@@ -14,14 +14,14 @@ class CreateCustomersTable extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nik')->unique();
-            $table->string('name');
-            $table->string('address');
-            $table->string('phone');
-            $table->unsignedBigInteger('courier_id');
-            $table->integer('point');
-            $table->integer('deposit');
+            $table->increments('id');
+            $table->string('nik', 25)->unique();
+            $table->string('name', 50);
+            $table->string('address', 100);
+            $table->string('phone', 15);
+            $table->unsignedInteger('courier_id');
+            $table->integer('point', 6);
+            $table->integer('deposit', 6);
             $table->timestamps();
 
             $table->foreign('courier_id')->references('id')->on('users');

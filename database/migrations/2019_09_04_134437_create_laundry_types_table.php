@@ -14,8 +14,8 @@ class CreateLaundryTypesTable extends Migration
     public function up()
     {
         Schema::create('laundry_types', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
+            $table->increments('id');
+            $table->string('name', 25);
             $table->timestamps();
         });
     }

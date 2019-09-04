@@ -14,12 +14,12 @@ class CreateOutletsTable extends Migration
     public function up()
     {
         Schema::create('outlets', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('code')->unique();
-            $table->string('name');
+            $table->increments('id');
+            $table->string('code', 25)->unique();
+            $table->string('name', 50);
             $table->boolean('status')->default(false);
-            $table->string('address');
-            $table->string('phone');
+            $table->string('address', 100);
+            $table->string('phone', 15);
             $table->timestamps();
         });
     }

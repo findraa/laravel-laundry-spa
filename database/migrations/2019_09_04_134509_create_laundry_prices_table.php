@@ -14,12 +14,12 @@ class CreateLaundryPricesTable extends Migration
     public function up()
     {
         Schema::create('laundry_prices', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('unit_type');
-            $table->unsignedBigInteger('laundry_type_id');
-            $table->integer('price');
-            $table->unsignedBigInteger('user_id');
+            $table->increments('id');
+            $table->string('name', 25);
+            $table->string('unit_type', 25);
+            $table->unsignedInteger('laundry_type_id');
+            $table->integer('price', 6);
+            $table->unsignedInteger('user_id');
             $table->timestamps();
 
             $table->foreign('laundry_type_id')->references('id')->on('laundry_types');
